@@ -62,7 +62,7 @@ public class Main {
                 newContent = transformer.wrapAndNumberLines(newContent);
 
                 readerWriter.writeFile(new File(file.getParent(), fileNameBuilder.toString()), newContent, StandardCharsets.UTF_8);
-
+                fileNameBuilder.setLength(0);
             } catch (Exception e) {
                 System.out.println("Exception: " + e);
             }
