@@ -1,5 +1,5 @@
 // TODO change this to your own package instead of jehrensb ***
-package ch.heig.dai.lab.fileio.jehrensb;
+package ch.heig.dai.lab.fileio.badisnt;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
