@@ -44,7 +44,7 @@ public class Main {
                 File file = folderFiles.getNewFile();
                 if (file == null) {
                     System.out.println("No file left.");
-                    return;
+                    break;
                 }
                 Charset fileEncoding = encoding.getEncoding(file);
                 if (fileEncoding == null) {
@@ -58,7 +58,10 @@ public class Main {
 
                 fileNameBuilder.append(file.getName()).append(".utf16le.processed");
                 String newContent = transformer.replaceChuck(content);
-                readerWriter.writeFile(new File(fileNameBuilder.toString()), newContent, StandardCharsets.UTF_8);
+                newContent = transformer.capitalizeWords(newContent);
+                newContent = transformer.wrapAndNumberLines(newContent);
+
+                readerWriter.writeFile(new File(file.getParent(), fileNameBuilder.toString()), newContent, StandardCharsets.UTF_8);
 
             } catch (Exception e) {
                 System.out.println("Exception: " + e);
