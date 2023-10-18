@@ -2,6 +2,8 @@ package ch.heig.dai.lab.fileio.fabricechapuis;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 public class EncodingSelector {
 
@@ -17,7 +19,15 @@ public class EncodingSelector {
      * @return the encoding of the file, or null if the extension is not recognized
      */
     public Charset getEncoding(File file) {
-        // TODO: implement the method body here
-        return null;
+        String fileName = file.getName();
+        String[] parts = fileName.split("\\.");
+        String extension = parts[parts.length - 1];
+
+        if (Objects.equals(extension, "utf8")) return StandardCharsets.UTF_8;
+        else if (Objects.equals(extension, "txt")) return StandardCharsets.US_ASCII;
+        else if (Objects.equals(extension, "utf16be")) return StandardCharsets.UTF_16BE;
+        else if (Objects.equals(extension, "utf16le")) return StandardCharsets.UTF_16LE;
+
+        else return null;
     }
 }
