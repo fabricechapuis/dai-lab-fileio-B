@@ -50,6 +50,7 @@ public class Main {
                 if (fileEncoding == null) {
                     System.out.println("Encoding undefined or unknown.");;
                 }
+                //TODO: DEBUG THIS 
                 String content = readerWriter.readFile(file, fileEncoding);
                 if (content == null) {
                     System.out.println("Error while reading file or file " + file.getName() + " is empty.");
