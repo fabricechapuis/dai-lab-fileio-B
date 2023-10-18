@@ -47,7 +47,7 @@ public class FileReaderWriter {
                         new FileOutputStream(file),
                         encoding));
 
-        writer.write("\r\n");
+        
 
         writer.write(content);
         writer.flush();
