@@ -1,6 +1,5 @@
 package ch.heig.dai.lab.fileio.dominiksaul;
 
-import ch.heig.dai.lab.fileio.jehrensb.FileExplorer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FileExplorerTests {
 
     @Test
-    @Disabled
+    // @Disabled
     public void getNewFilesTest() throws IOException {
         // Create a temporary directory under the default temp directory using java.io.File
 

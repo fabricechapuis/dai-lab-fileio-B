@@ -1,6 +1,7 @@
 package ch.heig.dai.lab.fileio.Calum_Quinn;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.HashSet;
 
 public class FileExplorer {
@@ -26,6 +27,15 @@ public class FileExplorer {
      */
     public File getNewFile() {
         // TODO: implement the method body here
+        File[] files = folder.listFiles();
+
+        for (int i = 0; i < files.length; ++i) {
+            if (!knownFiles.contains(files[i])) {
+                knownFiles.add(files[i]);
+                return files[i];
+            }
+        }
+
         return null;
     }
 }

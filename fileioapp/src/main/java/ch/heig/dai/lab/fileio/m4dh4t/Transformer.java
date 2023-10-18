@@ -23,8 +23,7 @@ public class Transformer {
      * @return the transformed string
      */
     public String replaceChuck(String source) {
-        // TODO: Implement the method body here.
-        return "";
+        return source.replaceAll("Chuck Norris", newName);
     }
 
     /**
@@ -33,8 +32,23 @@ public class Transformer {
      * @return the transformed string
      */
     public String capitalizeWords(String source) {
-        // TODO: Implement the method body here.
-        return "";
+        String[] words = source.split("\\s");
+        StringBuilder capitalizedSource = new StringBuilder();
+
+        for (String w: words) {
+            String firstLetter = w.substring(0,1);
+            capitalizedSource.append(firstLetter.toUpperCase());
+
+            if (w.length() == 1) {
+                capitalizedSource.append(" ");
+                continue;
+            }
+
+            String lastLetters = w.substring(1);
+            capitalizedSource.append(lastLetters).append(" ");
+        }
+
+        return capitalizedSource.toString().trim();
     }
 
     /**
@@ -44,8 +58,28 @@ public class Transformer {
      * @return the transformed string
      */
     public String wrapAndNumberLines(String source) {
-        // TODO: Implement the method body here.
-        // Use the StringBuilder class to build the result string.
-        return "";
+        String[] words = source.split("\\s");
+        StringBuilder wrappedSource = new StringBuilder();
+
+        int wordCounter = 0;
+        int lineCounter = 1;
+
+        for (String w: words) {
+            if (wordCounter == 0) {
+                wrappedSource.append(lineCounter).append(".");
+            }
+
+            ++wordCounter;
+            wrappedSource.append(" ").append(w);
+
+            if (wordCounter == numWordsPerLine) {
+                wrappedSource.append("\n");
+                wordCounter = 0;
+                ++lineCounter;
+            }
+        }
+
+        wrappedSource.append("\n");
+        return wrappedSource.toString();
     }
 }   
