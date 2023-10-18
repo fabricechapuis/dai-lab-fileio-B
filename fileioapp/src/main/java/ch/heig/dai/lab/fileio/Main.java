@@ -1,8 +1,12 @@
 package ch.heig.dai.lab.fileio;
 
-import ch.heig.dai.lab.fileio.fabricechapuis.*;
+import ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector;
+import ch.heig.dai.lab.fileio.fabricechapuis.FileExplorer;
+import ch.heig.dai.lab.fileio.fabricechapuis.FileReaderWriter;
+import ch.heig.dai.lab.fileio.fabricechapuis.Transformer;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class Main {
@@ -41,7 +45,19 @@ public class Main {
             try {
                 // TODO: loop over all files
                 File file = folderFiles.getNewFile();
-                String content = readerWriter.readFile(file, encoding.getEncoding(file));
+                if (file == null) {
+                    System.out.println("No file left.");
+                    return;
+                }
+                Charset fileEncoding = encoding.getEncoding(file);
+                if (fileEncoding == null) {
+                    System.out.println("Encoding undefined or unknown.");;
+                }
+                String content = readerWriter.readFile(file, fileEncoding);
+                if (content == null) {
+                    System.out.println("Error while reading file or file " + file.getName() + " is empty.");
+                    continue;
+                }
 
                 fileNameBuilder.append(file.getName()).append(".utf16le.processed");
                 String newContent = transformer.replaceChuck(content);
