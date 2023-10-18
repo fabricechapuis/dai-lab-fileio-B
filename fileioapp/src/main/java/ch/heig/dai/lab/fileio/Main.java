@@ -1,9 +1,6 @@
 package ch.heig.dai.lab.fileio;
 
-import ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector;
-import ch.heig.dai.lab.fileio.fabricechapuis.FileExplorer;
-import ch.heig.dai.lab.fileio.fabricechapuis.FileReaderWriter;
-import ch.heig.dai.lab.fileio.fabricechapuis.Transformer;
+import ch.heig.dai.lab.fileio.fabricechapuis.*;
 
 import java.io.File;
 import java.nio.charset.Charset;
