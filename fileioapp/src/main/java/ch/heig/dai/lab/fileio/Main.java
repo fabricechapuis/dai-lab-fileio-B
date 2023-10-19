@@ -1,6 +1,9 @@
 package ch.heig.dai.lab.fileio;
 
-import ch.heig.dai.lab.fileio.fabricechapuis.*;
+import ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector;
+import ch.heig.dai.lab.fileio.fabricechapuis.FileExplorer;
+import ch.heig.dai.lab.fileio.fabricechapuis.FileReaderWriter;
+import ch.heig.dai.lab.fileio.fabricechapuis.Transformer;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -23,6 +26,9 @@ public class Main {
      * i.e., with a suffixe ".processed".
      */
     public static void main(String[] args) {
+        for (String arg : args) {
+            System.out.println(arg);
+        }
         // Read command line arguments
         if (args.length != 2 || !new File(args[0]).isDirectory()) {
             System.out.println("You need to provide two command line arguments: an existing folder and the number of words per line.");
@@ -51,6 +57,7 @@ public class Main {
                     System.out.println("Encoding undefined or unknown.");;
                 }
                 String content = readerWriter.readFile(file, fileEncoding);
+                System.out.println(content);
                 if (content == null) {
                     System.out.println("Error while reading file or file " + file.getName() + " is empty.");
                     continue;
