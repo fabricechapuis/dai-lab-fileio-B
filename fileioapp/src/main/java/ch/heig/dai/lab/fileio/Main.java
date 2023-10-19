@@ -65,7 +65,6 @@ public class Main {
                 String newContent = transformer.replaceChuck(content);
                 newContent = transformer.capitalizeWords(newContent);
                 newContent = transformer.wrapAndNumberLines(newContent);
-                System.out.println(newContent);
 
                 readerWriter.writeFile(new File(file.getParent(), fileNameBuilder.toString()), newContent, StandardCharsets.UTF_8);
                 fileNameBuilder.setLength(0);
