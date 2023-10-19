@@ -10,7 +10,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class Main {
-    // *** TODO: Change this to your own name ***
     private static final String newName = "Fabrice Chapuis";
 
     /**
@@ -35,7 +34,6 @@ public class Main {
         String folder = args[0];
         int wordsPerLine = Integer.parseInt(args[1]);
         System.out.println("Application started, reading folder " + folder + "...");
-        // TODO: implement the main method here
 
         FileExplorer folderFiles = new FileExplorer(folder);
         EncodingSelector encoding = new EncodingSelector();
@@ -45,7 +43,6 @@ public class Main {
 
         while (true) {
             try {
-                // TODO: loop over all files
                 File file = folderFiles.getNewFile();
                 if (file == null) {
                     System.out.println("No file left.");
